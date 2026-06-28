@@ -122,3 +122,190 @@ h1 .gradient{background:linear-gradient(100deg,#fff,var(--accent),var(--accent-2
 .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease, transform .7s ease}.reveal.visible{opacity:1;transform:translateY(0)}
 @media (max-width:1050px){.menu{position:fixed;left:19px;right:19px;top:91px;display:none;flex-direction:column;align-items:stretch;padding:16px;border:1px solid var(--line);border-radius:24px;background:rgba(8,12,18,.96);box-shadow:var(--shadow)}.menu.open{display:flex}.menu a{padding:14px 16px}.burger{display:block}.phone{display:none}.hero-grid,.split,.form-wrap{grid-template-columns:1fr}.hero-card{min-height:430px}.cards,.catalog-grid{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:1fr 1fr}.contact-grid{grid-template-columns:1fr 1fr}}
 @media (max-width:720px){.container{width:min(100% - 28px,var(--max))}.nav{min-height:72px}.logo span{font-size:14px}.logo span small{font-size:9px}.nav-cta .btn{display:none}.hero{padding:42px 0}.hero-stats,.cards,.catalog-grid,.placeholder-grid,.contact-grid,.footer-grid{grid-template-columns:1fr}.hero-card{min-height:390px;border-radius:30px}.float-card.one{width:190px}.float-card.two{width:205px}.float-card.three{display:none}.section-head{display:block}.section-text{margin-top:14px}.car-shell{transform:scale(.72)}.showroom .car-shell{transform:translate(-50%,-50%) scale(.65)}.footer{margin-top:30px}}
+
+/* Mobile polishing pass: fully proportional car graphics and tighter small-screen layout */
+.car-shell{
+  width:min(96%,620px);
+  aspect-ratio:620/240;
+  height:auto;
+  position:relative;
+  filter:drop-shadow(0 38px 50px rgba(0,0,0,.55));
+}
+.car-top{
+  position:absolute;
+  left:18.5%;
+  right:18%;
+  top:8%;
+  height:38%;
+  border-radius:48% 48% 10% 10%;
+  background:linear-gradient(140deg,#f7fbff,#a9b8c8 68%,#4d5c70);
+  clip-path:polygon(12% 100%,27% 12%,68% 0,90% 100%);
+}
+.car-body{
+  position:absolute;
+  left:3.5%;
+  right:3.5%;
+  top:42.5%;
+  height:39%;
+  border-radius:22% 24% 11% 11%;
+  background:linear-gradient(135deg,#eff4fb,#aebccd 58%,#394558);
+  box-shadow:inset 0 -18px 25px rgba(0,0,0,.24);
+}
+.car-light{
+  position:absolute;
+  right:6%;
+  top:54%;
+  width:12%;
+  height:8.5%;
+  border-radius:999px;
+  background:linear-gradient(90deg,#fff9c7,var(--accent));
+  box-shadow:0 0 28px rgba(214,255,63,.45);
+}
+.wheel{
+  position:absolute;
+  top:69%;
+  width:15.5%;
+  aspect-ratio:1;
+  height:auto;
+  border-radius:50%;
+  background:radial-gradient(circle,#27303d 0 25%,#0a0d13 26% 57%,#768293 58% 65%,#111721 66%);
+  box-shadow:0 12px 28px rgba(0,0,0,.45);
+}
+.wheel.left{left:15.8%}
+.wheel.right{right:15.8%}
+.road{
+  position:absolute;
+  left:4%;
+  right:4%;
+  top:94%;
+  height:3%;
+  border-radius:999px;
+  background:linear-gradient(90deg,transparent,var(--accent),var(--accent-2),transparent);
+  opacity:.75;
+}
+.auto-art{height:clamp(150px,30vw,190px)}
+.auto-art::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:52%;
+  transform:translate(-50%,-50%);
+  width:78%;
+  height:43%;
+  border-radius:42% 48% 16% 16%;
+  background:linear-gradient(135deg,#f8fbff,#9dacbf 62%,#263141);
+  box-shadow:0 25px 44px rgba(0,0,0,.35);
+  z-index:1;
+}
+.auto-art::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 28% 70%, #070a10 0 7.2%, transparent 7.4%),
+    radial-gradient(circle at 72% 70%, #070a10 0 7.2%, transparent 7.4%);
+  z-index:2;
+}
+
+@media (max-width:1050px){
+  .hero-grid{gap:24px}
+  .hero-card{max-width:720px;margin:0 auto;width:100%}
+  .showroom .car-shell{width:min(90%,620px)}
+}
+
+@media (max-width:720px){
+  body{background-position:center top}
+  .container{width:min(100% - 24px,var(--max))}
+  .topline{background:rgba(7,10,16,.88)}
+  .nav{min-height:70px;gap:10px}
+  .logo{gap:10px;min-width:0}
+  .logo-mark{width:42px;height:42px;border-radius:14px;flex:0 0 auto}
+  .logo span{font-size:13px;line-height:1.05;min-width:0}
+  .logo span small{font-size:8px;letter-spacing:.12em;white-space:nowrap}
+  .nav-cta{gap:8px;min-width:auto}
+  .burger{width:42px;height:42px;border-radius:14px;flex:0 0 auto}
+  .menu{left:12px;right:12px;top:78px;border-radius:22px}
+  h1,.page-hero h1{font-size:clamp(38px,11.5vw,56px);line-height:.98;letter-spacing:-.045em}
+  .lead{font-size:16px;line-height:1.55}
+  .hero{padding:36px 0 34px}
+  .hero-actions{display:grid;grid-template-columns:1fr;gap:10px;margin:24px 0}
+  .hero-actions .btn,.form .btn{width:100%}
+  .hero-stats{gap:10px;margin-top:24px}
+  .stat{padding:15px;border-radius:19px}
+  .stat strong{font-size:24px}
+  .hero-card{min-height:410px;border-radius:30px;padding:18px;overflow:hidden}
+  .hero-card::before{inset:-34%;filter:blur(8px)}
+  .car-visual{align-items:center;padding-top:70px;padding-bottom:20px}
+  .car-visual .car-shell{width:min(104%,620px);transform:none;margin-top:52px}
+  .float-card{border-radius:20px;padding:14px}
+  .float-card small{font-size:11px}
+  .float-card strong{font-size:19px;line-height:1.06}
+  .float-card.one{left:14px;top:14px;width:172px}
+  .float-card.two{right:14px;bottom:16px;width:178px}
+  .section{padding:46px 0}
+  .section.tight{padding:32px 0}
+  .section-title{font-size:clamp(30px,9vw,42px);line-height:1.02;letter-spacing:-.045em}
+  .card,.panel,.form-card{border-radius:24px;padding:22px}
+  .split{gap:16px}
+  .panel h2{font-size:clamp(31px,9vw,44px);line-height:1.02;letter-spacing:-.045em}
+  .step{grid-template-columns:44px 1fr;padding:14px;border-radius:19px}
+  .step b{width:44px;height:44px;border-radius:15px}
+  .showroom{min-height:300px}
+  .showroom .car-shell{width:96%;transform:translate(-50%,-50%) scale(.88)}
+  .orb.a{width:120px;height:120px;left:18px;top:30px}
+  .orb.b{width:160px;height:160px;right:-40px;bottom:10px}
+  .auto-art{height:clamp(150px,47vw,185px)}
+  .auto-card{border-radius:24px}
+  .auto-body{padding:20px}
+  .price{align-items:flex-start;flex-direction:column}
+  .page-hero{padding:42px 0 24px}
+  .empty-state{min-height:280px;border-radius:28px;padding:24px}
+  .placeholder{height:136px;border-radius:22px}
+  .contact-card{border-radius:22px;padding:20px}
+  .contact-card strong{font-size:19px;word-break:break-word}
+  .map{height:260px;border-radius:26px}
+  .legal{display:grid;gap:10px}
+}
+
+@media (max-width:430px){
+  .container{width:min(100% - 20px,var(--max))}
+  .logo span small{display:none}
+  .hero-card{min-height:370px;border-radius:26px}
+  .car-visual{padding-top:58px;padding-bottom:12px}
+  .car-visual .car-shell{width:112%;margin-top:48px}
+  .float-card{padding:12px;border-radius:18px}
+  .float-card.one{left:12px;top:12px;width:152px}
+  .float-card.two{right:12px;bottom:12px;width:158px}
+  .float-card strong{font-size:17px}
+  .progress{height:6px;margin-top:10px}
+  .showroom{min-height:260px}
+  .showroom .car-shell{width:108%;transform:translate(-50%,-50%) scale(.86)}
+  .auto-art{height:155px}
+}
+
+@media (max-width:360px){
+  .logo span{font-size:12px}
+  .logo-mark{width:38px;height:38px;border-radius:13px}
+  .burger{width:38px;height:38px}
+  .hero-card{min-height:350px}
+  .float-card.one{width:142px}
+  .float-card.two{width:146px}
+  .float-card strong{font-size:16px}
+}
+
+/* Final hero-mobile composition: service badges above, car below, no overlaps */
+@media (max-width:720px){
+  .car-visual{place-items:end center;padding-top:108px;padding-bottom:30px}
+  .car-visual .car-shell{width:min(104%,620px);margin-top:0;transform:none}
+  .float-card.one{left:14px;top:14px;width:calc(50% - 20px)}
+  .float-card.two{right:14px;top:14px;bottom:auto;width:calc(50% - 20px)}
+}
+@media (max-width:430px){
+  .car-visual{padding-top:92px;padding-bottom:24px}
+  .car-visual .car-shell{width:112%;margin-top:0}
+  .float-card.one{left:12px;top:12px;width:calc(50% - 18px)}
+  .float-card.two{right:12px;top:12px;bottom:auto;width:calc(50% - 18px)}
+}
+@media (max-width:360px){
+  .float-card.one,.float-card.two{width:calc(50% - 16px)}
+}
